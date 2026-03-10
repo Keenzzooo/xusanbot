@@ -1,0 +1,11 @@
+services:
+  - type: worker
+    name: database-analyzer-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    envVars:
+      - key: BOT_TOKEN
+        sync: false          # set this manually in the Render dashboard
+      - key: DATABASE_PATH
+        value: users.db
